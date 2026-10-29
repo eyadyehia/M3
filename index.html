@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M3 Licenses</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050405;--panel:rgba(20,9,12,.68);--pb:rgba(255,45,85,.2);--pbh:rgba(255,70,105,.65);--f1:#ff174d;--f2:#ff496d;--f3:#ff8a9d;--dim:#7a1230;--hi:#fff1f3;--mid:#cba9ae;--low:#81656a;--ok:#3ddc97;
+--fb:"Space Grotesk",-apple-system,"Segoe UI",Tahoma,sans-serif;--fa:"Orbitron",var(--fb);color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--hi);font:15px/1.5 var(--fb);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(55% 40% at 50% 0,rgba(255,23,77,.18),transparent 72%),radial-gradient(70% 55% at 50% 100%,rgba(122,18,48,.18),transparent 72%)}
+#app{position:relative;z-index:1;display:grid;grid-template-columns:250px 1fr;gap:16px;padding:16px;min-height:100vh}
+.glass{background:var(--panel);border:1px solid var(--pb);border-radius:24px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+nav{padding:18px;display:flex;flex-direction:column;gap:8px;align-self:start;position:sticky;top:16px}
+.logo{font:800 24px var(--fa);letter-spacing:2px;margin-bottom:10px}.logo b{color:var(--f1)}
+nav button{all:unset;box-sizing:border-box;cursor:pointer;padding:12px 14px;border-radius:14px;border:1px solid transparent;color:var(--mid);font:600 14px var(--fa);letter-spacing:1px;transition:.2s;display:flex;justify-content:space-between;align-items:center;direction:ltr}
+nav button:hover{border-color:var(--pb);color:var(--hi)}
+nav button.on{background:linear-gradient(135deg,rgba(255,23,77,.25),rgba(122,18,48,.25));border-color:var(--pbh);color:var(--hi)}
+.sub{display:none;flex-direction:column;gap:6px;padding-inline-start:14px}.sub.open{display:flex}
+.sub button{font-size:12px;padding:9px 12px}
+main{padding:24px;min-width:0}
+h2{margin:0 0 4px;font:800 26px var(--fa);letter-spacing:1px;direction:ltr;text-align:start}
+.muted{color:var(--mid);margin:0 0 20px}
+label{display:block;color:var(--mid);font-size:13px;margin:14px 0 6px}
+input,select{width:100%;padding:13px 14px;border-radius:14px;border:1px solid var(--pb);background:rgba(0,0,0,.35);color:var(--hi);font:inherit;outline:none}
+input:focus,select:focus{border-color:var(--pbh)}
+select option{background:#14090c}
+.btn{cursor:pointer;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:12px 22px;font:700 14px var(--fa);letter-spacing:1px;color:#fff;background:linear-gradient(180deg,var(--f2),#c4102f);transition:.2s}
+.btn:hover{filter:brightness(1.15)}.btn.ghost{background:transparent;border-color:var(--pb);color:var(--mid)}.btn.danger{background:#3a0a14;border-color:var(--f1);color:var(--f3)}
+.btn:disabled{opacity:.5;cursor:default}
+.card{padding:22px;margin-bottom:18px}
+.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1;min-width:160px}
+.msg{white-space:pre-wrap;background:rgba(0,0,0,.4);border:1px dashed var(--pbh);border-radius:16px;padding:16px;margin:14px 0;line-height:1.9}
+.code{font-family:var(--fa);direction:ltr;unicode-bidi:embed;letter-spacing:1px;color:var(--f3);word-break:break-all}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--pb);border-radius:16px;margin-bottom:10px;cursor:pointer;transition:.2s}
+.item:hover{border-color:var(--pbh);background:rgba(30,11,16,.8)}
+.chip{font:600 11px var(--fa);padding:4px 10px;border-radius:999px;border:1px solid var(--pb);color:var(--mid);white-space:nowrap}
+.chip.ok{color:var(--ok);border-color:var(--ok)}.chip.wait{color:var(--f3);border-color:var(--f2)}.chip.bad{color:#888;border-color:#555}
+dl{display:grid;grid-template-columns:130px 1fr;gap:10px 14px;margin:0}dt{color:var(--low)}dd{margin:0;word-break:break-all}
+#modal{position:fixed;inset:0;z-index:10;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.72)}
+#modal.on{display:flex}#mbox{width:min(560px,100%);max-height:90vh;overflow:auto;padding:24px}
+.empty{color:var(--low);text-align:center;padding:30px}
+#warn{display:none;margin:0 0 16px;padding:14px;border-radius:16px;border:1px solid var(--f1);color:var(--f3)}
+@media(max-width:760px){#app{grid-template-columns:1fr}nav{position:static;flex-direction:row;flex-wrap:wrap}.logo{width:100%}.sub{width:100%;flex-direction:row;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<div id="app">
+<nav class="glass">
+ <div class="logo">M3<b>•</b>KEYS</div>
+ <button data-v="STUDIO">M3 STUDIO</button>
+ <button data-v="AI">M3 AI</button>
+ <button data-v="QUALITY">M3 Quality</button>
+ <button data-v="DB" id="dbbtn">Database <span>▾</span></button>
+ <div class="sub" id="dbsub">
+  <button data-v="DB:STUDIO">M3 STUDIO</button>
+  <button data-v="DB:AI">M3 AI</button>
+  <button data-v="DB:QUALITY">M3 Quality</button>
+ </div>
+</nav>
+<main class="glass"><div id="warn">قاعدة البيانات مش متاحة دلوقتي. افتح الصفحة من حسابك على claude.ai.</div><div id="view"></div></main>
+</div>
+<div id="modal"><div id="mbox" class="glass"></div></div>
+
+<script>
+var APPS={STUDIO:{name:"M3 STUDIO",p:"S"},AI:{name:"M3 AI",p:"A"},QUALITY:{name:"M3 Quality",p:"Q"}};
+var DUR={minute:["دقيقة",60000],week:["أسبوع",604800000],month:["شهر",2592000000],year:["سنة",31536000000]};
+var CS="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+var db=null,col=null,all=[],cur="STUDIO",lastMsg={},assets=null;
+
+function rnd(n,first){var a=new Uint32Array(n),s="";crypto.getRandomValues(a);for(var i=0;i<n;i++)s+=CS[a[i]%CS.length];return first?first+s.slice(1):s}
+function esc(t){var d=document.createElement("div");d.textContent=t==null?"":String(t);return d.innerHTML}
+function fmt(ts){return ts?new Date(ts).toLocaleString("ar-EG"):"—"}
+function status(l){
+ if(l.status==="active"){return l.expiresAt&&l.expiresAt<Date.now()?["منتهي","bad"]:["مفعّل","ok"]}
+ if(l.status==="blocked")return["مقفول","bad"];
+ return["في الانتظار","wait"]}
+function $(id){return document.getElementById(id)}
+
+function go(v){
+ cur=v;
+ document.querySelectorAll("nav button").forEach(function(b){b.classList.toggle("on",b.dataset.v===v)});
+ $("dbsub").classList.toggle("open",v.indexOf("DB")===0);
+ if(v==="DB")cur="DB:STUDIO";
+ render()}
+document.querySelectorAll("nav button").forEach(function(b){b.onclick=function(){go(b.dataset.v)}});
+
+function render(){
+ var v=cur,el=$("view");
+ if(v.indexOf("DB:")===0){
+  var k=v.split(":")[1],list=all.filter(function(l){return l.app===k});
+  el.innerHTML='<h2>Database — '+APPS[k].name+'</h2><p class="muted">كل المشتركين ('+list.length+')</p>'+listHtml(list);
+ }else{
+  var a=APPS[v],list2=all.filter(function(l){return l.app===v}).slice(0,6);
+  el.innerHTML='<h2>'+a.name+'</h2><p class="muted">اعمل كود اشتراك جديد لعميل</p>'+
+  '<div class="card glass"><label>اسم العميل</label><input id="cn" placeholder="مثال: Ahmed" autocomplete="off">'+
+  '<label>مدة الاشتراك</label><select id="cd">'+Object.keys(DUR).map(function(k){return'<option value="'+k+'">'+DUR[k][0]+'</option>'}).join("")+'</select>'+
+  '<p style="margin:18px 0 0"><button class="btn" id="gen">Generate</button></p><div id="out"></div></div>'+
+  '<h2 style="font-size:18px;margin-top:26px">آخر العملاء</h2><div style="margin-top:12px">'+listHtml(list2)+'</div>';
+  $("gen").onclick=generate;
+  if(lastMsg[v])showMsg(lastMsg[v]);
+ }
+ document.querySelectorAll(".item").forEach(function(i){i.onclick=function(){openDetail(i.dataset.id)}})}
+
+function listHtml(list){
+ if(!list.length)return'<div class="empty">لسه مفيش مشتركين</div>';
+ return list.map(function(l){var s=status(l);return'<div class="item" data-id="'+esc(l.id)+'"><div><b>'+esc(l.name)+'</b><div class="code" style="font-size:12px">'+esc(l.code)+'</div></div><span class="chip '+s[1]+'">'+s[0]+'</span></div>'}).join("")}
+
+async function generate(){
+ var name=$("cn").value.trim();
+ if(!name){$("cn").focus();return}
+ if(!col){$("warn").style.display="block";return}
+ var clean=name.replace(/[\s]+/g,"_").replace(/[\/\\'"]/g,"");
+ var code=rnd(4,APPS[cur].p)+"-"+rnd(4)+"-"+clean+"-"+rnd(4);
+ var dk=$("cd").value;
+ var rec={app:cur,name:name,code:code,duration:dk,durationMs:DUR[dk][1],status:"pending",deviceId:null,createdAt:Date.now(),activatedAt:null,expiresAt:null,update:null};
+ $("gen").disabled=true;
+ try{await col.doc(code).set(rec);
+  lastMsg[cur]={name:name,code:code,dur:DUR[dk][0]};showMsg(lastMsg[cur]);
+ }catch(e){alert("حصل خطأ في الحفظ: "+(e&&e.message||e))}
+ $("gen").disabled=false}
+
+function showMsg(m){
+ var text="أهلاً "+m.name+" 👋\nاسم العميل: "+m.name+"\nكود الاشتراك: "+m.code+"\nمدة الاشتراك: "+m.dur+"\nشكراً لاختيارك "+APPS[cur].name;
+ $("out").innerHTML='<div class="msg"><span class="code">'+esc(text)+'</span></div><button class="btn ghost" id="cp">نسخ الرسالة</button>';
+ $("cp").onclick=function(){navigator.clipboard.writeText(text).then(function(){$("cp").textContent="تم النسخ ✓"},function(){var r=document.createRange();r.selectNode($("out").querySelector(".msg"));getSelection().removeAllRanges();getSelection().addRange(r)})}}
+
+function openDetail(id){
+ var l=all.find(function(x){return x.id===id});if(!l)return;
+ var s=status(l),u=l.update;
+ $("mbox").innerHTML='<h2 style="font-size:20px">'+esc(l.name)+'</h2><p class="muted"><span class="chip '+s[1]+'">'+s[0]+'</span> &nbsp; '+APPS[l.app].name+'</p>'+
+ '<dl><dt>اسم العميل</dt><dd>'+esc(l.name)+'</dd><dt>Device ID</dt><dd class="code">'+(l.deviceId?esc(l.deviceId):"لسه ما اتفعّلش")+'</dd><dt>الكود</dt><dd class="code">'+esc(l.code)+'</dd><dt>المدة</dt><dd>'+DUR[l.duration][0]+'</dd><dt>بدأ في</dt><dd>'+fmt(l.activatedAt)+'</dd><dt>ينتهي في</dt><dd>'+fmt(l.expiresAt)+'</dd>'+
+ '<dt>آخر Update</dt><dd>'+(u?esc(u.fileName)+" — "+fmt(u.at):"—")+'</dd></dl>'+
+ '<div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--pb)"><label style="margin-top:0">الاشتراك</label><select id="rd">'+Object.keys(DUR).map(function(k){return'<option value="'+k+'"'+(k===l.duration?' selected':'')+'>'+DUR[k][0]+'</option>'}).join("")+'</select><div class="row" style="margin-top:10px"><button class="btn" id="renew">تجديد (يضيف المدة)</button><button class="btn ghost" id="chg">تغيير (يبدأ من دلوقتي)</button></div></div>'+
+ '<div class="row" style="margin-top:22px"><button class="btn" id="upd">Update</button><button class="btn danger" id="del">Delete code</button><button class="btn ghost" id="cls">إغلاق</button></div>'+
+ '<input type="file" id="uf" style="display:none">';
+ $("modal").classList.add("on");
+ $("cls").onclick=function(){$("modal").classList.remove("on")};
+ async function sub(mode){
+  var k=$("rd").value,ms=DUR[k][1],p={duration:k,durationMs:ms};
+  if(l.status==="active"){p.expiresAt=mode==="renew"?Math.max(l.expiresAt||0,Date.now())+ms:Date.now()+ms}
+  try{await col.doc(l.id).update(p);Object.assign(l,p);openDetail(id)}catch(e){alert("فشل التحديث")}}
+ $("renew").onclick=function(){sub("renew")};
+ $("chg").onclick=function(){sub("change")};
+ $("upd").onclick=function(){$("uf").click()};
+ $("uf").onchange=async function(){
+  var f=$("uf").files[0];if(!f)return;
+  if(!assets){alert("رفع الملفات مش متاح دلوقتي");return}
+  $("upd").disabled=true;$("upd").textContent="جاري الرفع...";
+  try{var r=await assets.upload(f);
+   await col.doc(l.id).update({update:{fileName:f.name,url:r.url,assetId:r.id,at:Date.now(),version:Date.now()}});
+   $("upd").textContent="تم ✓";
+  }catch(e){alert("فشل الرفع: "+(e&&e.message||e));$("upd").textContent="Update";$("upd").disabled=false}};
+ $("del").onclick=async function(){
+  if(!confirm("متأكد إنك عايز تمسح الكود؟ العميل مش هيقدر يدخل تاني."))return;
+  try{await col.doc(l.id).delete();$("modal").classList.remove("on")}catch(e){alert("فشل المسح")}}}
+$("modal").onclick=function(e){if(e.target===$("modal"))$("modal").classList.remove("on")};
+
+(async function(){
+ go("STUDIO");
+ try{db=await claude.use("db");assets=await claude.use("assets")}catch(e){}
+ if(!db){$("warn").style.display="block";return}
+ col=db.collection("licenses");
+ col.orderBy("createdAt","desc").onSnapshot(function(s){
+  all=s.docs.map(function(d){var o=d.data();o.id=d.id;return o});render()},function(){$("warn").style.display="block"})})();
+</script>
+</body>
+</html>
